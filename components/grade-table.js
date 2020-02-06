@@ -3,7 +3,10 @@ class GradeTable {
         this.tableElement = tableElement;
     };
     updateGrades (grades) {
-        this.tableElement.querySelector("tbody").textContent = "";
+        var tableBody = this.tableElement.querySelector("tbody")
+        while (tableBody.firstChild) {
+            tableBody.removeChild(tableBody.firstChild);
+        };
         for (var i = 0; i < grades.length; i++) {
             var tableRow = document.createElement("tr");
             var tableDataStudent = document.createElement("td");
@@ -16,6 +19,6 @@ class GradeTable {
 
             tableRow.append(tableDataStudent,tableDataCourse,tableDataGrade);
             this.tableElement.append(tableRow);
-        }
+        };
     };
 }
