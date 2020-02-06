@@ -18,7 +18,7 @@ class GradeTable {
             tableDataGrade.textContent = grades[i].grade;
 
             tableRow.append(tableDataStudent,tableDataCourse,tableDataGrade);
-            this.tableElement.append(tableRow);
+            this.tableElement.querySelector("tbody").append(tableRow);
         };
     };
 }
