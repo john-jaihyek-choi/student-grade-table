@@ -3,7 +3,7 @@ class App {
         this.handleGetGradesError = this.handleGetGradesError.bind(this);
         this.handleGetGradesSuccess = this.handleGetGradesSuccess.bind(this);
         this.gradeTable = gradeTable;
-        this.pageHeader = pageHeader
+        this.pageHeader = pageHeader;
     };
     handleGetGradesError (error) {
         console.error(error);
@@ -14,10 +14,8 @@ class App {
         var averageNumber;
         for (var i = 0; i < grades.length; i++) {
             sumNumber = sumNumber + Number(grades[i].grade);
-            if (i === grades.length - 1) {
-                averageNumber = Number(sumNumber / grades.length);
-            };
         }; 
+        averageNumber = Number(sumNumber / grades.length);
         this.pageHeader.updateAverage(averageNumber);
     };
     getGrades () {
