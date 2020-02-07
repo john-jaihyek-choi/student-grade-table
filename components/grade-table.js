@@ -1,6 +1,8 @@
 class GradeTable {
-    constructor (tableElement) {
+    constructor (tableElement, noGradesElement) {
         this.tableElement = tableElement;
+        this.deleteGrade = null;
+        this.noGradesElement = noGradesElement;
     };
     updateGrades (grades) {
         var tableBody = this.tableElement.querySelector("tbody")
@@ -8,17 +10,33 @@ class GradeTable {
             tableBody.removeChild(tableBody.firstChild);
         };
         for (var i = 0; i < grades.length; i++) {
-            var tableRow = document.createElement("tr");
-            var tableDataStudent = document.createElement("td");
-            var tableDataCourse = document.createElement("td");
-            var tableDataGrade = document.createElement("td");
-
-            tableDataStudent.textContent = grades[i].name;
-            tableDataCourse.textContent = grades[i].course;
-            tableDataGrade.textContent = grades[i].grade;
-
-            tableRow.append(tableDataStudent,tableDataCourse,tableDataGrade);
-            this.tableElement.querySelector("tbody").append(tableRow);
+            var tableRow = this.renderGradeRow(grades[i], this.deleteGrade);
+            this.tableElement.querySelector("tbody").append(tableRow);  
         };
+        if (!grades) {
+            document.querySelector("p").classList.toggle("d-none");
+        };
+    };
+    onDeleteClick (deleteGrade) {
+        this.deleteGrade = deleteGrade;
+    };
+    renderGradeRow (data, deleteGrade) {
+        var tableRow = document.createElement("tr");
+        var nameData = document.createElement("td");
+        var courseData = document.createElement("td");
+        var gradeData = document.createElement("td");
+        var deleteButton = document.createElement("button");
+
+        nameData.textContent = data.name;
+        courseData.textContent = data.course;
+        gradeData.textContent = data.grade;
+        deleteButton.textContent = "DELETE";
+        deleteButton.className = "btn btn-danger my-2";
+        
+        deleteButton.addEventListener("click", function () {
+            deleteGrade(data.id);
+        })
+        tableRow.append(nameData, courseData, gradeData, deleteButton);
+        return tableRow;
     };
 }
