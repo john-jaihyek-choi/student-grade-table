@@ -13,8 +13,11 @@ class GradeTable {
             var tableRow = this.renderGradeRow(grades[i], this.deleteGrade);
             this.tableElement.querySelector("tbody").append(tableRow);  
         };
-        if (!grades) {
-            document.querySelector("p").classList.toggle("d-none");
+
+        if (tableBody.childElementCount > 0) {
+            document.querySelector(".gradeRecord").classList.add("d-none");
+        } else {
+            document.querySelector(".gradeRecord").classList.remove("d-none");
         };
     };
     onDeleteClick (deleteGrade) {
