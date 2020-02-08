@@ -1,0 +1,24 @@
+@media only screen and (max-width: 1366px) {
+    header { 
+        text-align: center;
+    }
+    header > div > div.col {
+        flex-basis: 100%;
+        text-align: center;
+    }
+    header > div > div.col > h2 {
+        text-align: center;
+    }
+    table.col-8 {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+    form.col {
+        flex-basis: 100%;
+    }
+    form.offset-1 {
+        margin: auto;
+        padding: auto;
+    }
+};
+

@@ -23,7 +23,11 @@ class App {
             sumNumber = sumNumber + Number(grades[i].grade);
         }; 
         averageNumber = Number(sumNumber / grades.length).toFixed(2);
-        this.pageHeader.updateAverage(averageNumber);
+        if(averageNumber === "NaN") {
+            this.pageHeader.updateAverage("N/A");
+        } else {
+            this.pageHeader.updateAverage(averageNumber);
+        };
     };
     getGrades () {
         $.ajax({

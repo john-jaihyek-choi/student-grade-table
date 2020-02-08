@@ -7,6 +7,7 @@
     <title>Student Grade Table</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="container col-11 border-bottom mb-3">
@@ -15,7 +16,7 @@
                 <h1>Student Grade Table</h1>
             </div>
             <div class="col text-right">
-                <h2>Average Grade <span class="badge badge-secondary"></span> </h2>
+                <h2>Average Grade <span class="badge badge-secondary"></span></h2>
             </div>
         </div>
     </header>
@@ -29,11 +30,12 @@
                         <th>Grade</th>
                         <th>Operations</th>
                     </tr>
+                    <td class="gradeRecord" colspan="5">No Grades Recorded</td>
                 </thead>
                 <tbody class="text-center">
+                    
                 </tbody>
             </table>
-            <p class="d-none">No Grades Recorded</p>
             <form action="" class="col offset-1">
                 <header>
                     <h4>Add Grade</h4>
